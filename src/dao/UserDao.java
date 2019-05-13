@@ -14,21 +14,21 @@ public class UserDao {
 	
 	public String authUser(UserBean userBean) {  
     	System.out.println("Entrou LOGIN");
-    	String retorno = null;
+    	String redirect = null;
         
     	try {       	 
         	con = connectionDb.getConnection();
 			
-			String sql = "select * from users where name = ? and password = ?";
+			String sql = "SELECT * FROM users WHERE name = ? and password = ?";
 			PreparedStatement ps = con.prepareStatement(sql); 
              ps.setString(1, userBean.getEmail());
              ps.setString(2, userBean.getPassword());
              ResultSet rs = ps.executeQuery();
              
              if (rs.next()) {
-            	 retorno = "cadastrar_usuario";	            	 
+            	 redirect = "login_sucesso";	            	 
              }else {
-            	 retorno = "index";
+            	 redirect = "login_falhou";
              }	             	             
             
 		} catch (Exception e) {
@@ -39,7 +39,7 @@ public class UserDao {
         	connectionDb.closeConnection();	        	
         }        
 
-        return retorno;
+        return redirect;
     }
 	
 	public int cadUser(UserBean user) {
