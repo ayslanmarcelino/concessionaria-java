@@ -26,7 +26,7 @@ public class UserDao {
              ResultSet rs = ps.executeQuery();
              
              if (rs.next()) {
-            	 redirect = "login_sucesso";	            	 
+            	 redirect = "home";	            	 
              }else {
             	 redirect = "login_falhou";
              }	             	             
