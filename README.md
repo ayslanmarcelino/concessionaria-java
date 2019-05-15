@@ -4,6 +4,6 @@ Funções:
 
 - Cadastrar usuário;
 - Cadastrar funcionário;
+- Cadastrar marca do veículo;
 - Cadastrar modelo do veículo;
-- Cadastrar placa do veículo;
 - Cadastrar veículo no estoque.
