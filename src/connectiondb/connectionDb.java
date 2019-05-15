@@ -6,12 +6,12 @@ import java.sql.DriverManager;
 public class connectionDb {
 	private static final String driver = "org.postgresql.Driver";
 	private static final String url = "jdbc:postgresql://localhost:5432/concessionaria_java";
-	private static final String user= "ayslan";			
-	private static final String password = "123";
+	private static final String user= "postgres";			
+	private static final String password = "post";
 	
-	// AYSLAN
-	//private static final String user= "postgres";			
-	//private static final String password = "post";	
+	// POSTGRES
+	//private static final String user= "ayslan";			
+	//private static final String password = "123";	
 	
 	private static Connection con = null;
 	

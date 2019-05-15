@@ -14,7 +14,7 @@ public class UserDao {
 	
 	public String authUser(UserBean userBean) {  
     	System.out.println("Entrou LOGIN");
-    	String retorno = null;
+    	String redirect = null;
         
     	try {       	 
         	con = connectionDb.getConnection();
@@ -26,9 +26,9 @@ public class UserDao {
              ResultSet rs = ps.executeQuery();
              
              if (rs.next()) {
-            	 retorno = "cadastrar_usuario";	            	 
+            	 redirect = "cadastrar_usuario";	            	 
              }else {
-            	 retorno = "index";
+            	 redirect = "index";
              }	             	             
             
 		} catch (Exception e) {
@@ -39,7 +39,7 @@ public class UserDao {
         	connectionDb.closeConnection();	        	
         }        
 
-        return retorno;
+        return redirect;
     }
 	
 	public int cadUser(UserBean user) {
