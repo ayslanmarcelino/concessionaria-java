@@ -13,7 +13,7 @@ public class UserDao {
 	private Connection con;
 	
 	public String authUser(UserBean userBean) {  
-    	System.out.println("Entrou LOGIN");
+
     	String redirect = null;
         
     	try {       	 
