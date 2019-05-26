@@ -2,22 +2,42 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:b="http://bootsfaces.net/ui">
 
-<h:head></h:head>
+<h:head>
+<title>Login - Concessionária</title>
 
-<h:body>
-	<h:form>
-		<h:outputText value="Usuário padrão: admin | Senha padrão: admin" />
-		<br />
-		<h:outputLabel value="Usuário: " />
-		<h:inputText value="#{controller.user.email}" />
-		<br />
-		<h:outputLabel value="Senha: " />
-		<h:inputSecret value="#{controller.user.password}" />
-		<br />
-		<h:commandButton action="#{controller.authUser()}" value="Entrar" />
-	</h:form>
+        <style type="text/css">
+            .form-signin {
+                margin: 0 auto;
+                max-width: 450px;
+                padding: 15px;
+            }
+        </style>
+        
+</h:head>
+
+<h:body style="padding-top: 80px">
+
+<b:container>
+            <h:form styleClass="form-signin">
+                <h2 class="form-signin-heading">Para continuar efetue o Login.</h2>
+                <b:inputText id="email" placeholder="Usuário" value="#{controller.user.email}">
+                    <f:facet name="prepend">
+                        <b:icon name="user"/>
+                    </f:facet>
+                </b:inputText>
+                <b:inputText id="password" placeholder="Senha" type="password" value="#{controller.user.password}">
+                    <f:facet name="prepend">
+                        <b:iconAwesome name="key" />
+                    </f:facet>
+                </b:inputText>
+                <b:commandButton action="#{controller.authUser()}" look="primary btn-block" value="Entrar" icon="log-in" size="lg"/>
+            </h:form>
+        </b:container>
+
 </h:body>
 
 </html>
