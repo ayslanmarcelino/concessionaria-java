@@ -1,9 +1,11 @@
 # Concessionária em Java
 
-Funções:
+Sistema de concessionária desenvolvido para a disciplina de Programação Web, do curso de Sistemas de informação no CESMAC.
 
-- Cadastrar usuário;
-- Cadastrar funcionário;
-- Cadastrar marca do veículo;
-- Cadastrar modelo do veículo;
-- Cadastrar veículo no estoque.
+O sistema inicial tem como funções:
+
+- Cadastrar/editar/remover usuário;
+- Cadastrar/editar/remover funcionário;
+- Cadastrar/editar/remover marca do veículo;
+- Cadastrar/editar/remover modelo do veículo;
+- Cadastrar/editar/remover veículo no estoque.
