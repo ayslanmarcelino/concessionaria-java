@@ -2,45 +2,39 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:b="http://bootsfaces.net/ui">
 
 <h:head></h:head>
 <h:body>
-	<h:form>
-		<h:panelGrid columns="2" border="1" cellpadding="10" cellspacing="1">
+	<b:form inline="true">
+		<b:panelGrid columns="1">
 			<f:facet name="header">
 				<h:outputText value="Cadastro de funcionários" />
 			</f:facet>
-			<h:outputLabel value="Nome" />
-			<h:inputText value="#{controller.employee.name}" />
 
-			<h:outputLabel value="Email" />
-			<h:inputText value="#{controller.employee.email}" />
+			<b:inputText value="#{controller.employee.name}" label="Nome" />
 
-			<h:outputLabel value="RG" />
-			<h:inputText value="#{controller.employee.rg}" />
-			
-			<h:outputLabel value="CPF" />
-			<h:inputText value="#{controller.employee.cpf}" />
-			
-			<h:outputLabel value="Data de nascimento" />
-			<h:inputText value="#{controller.employee.date_of_birth}" />
-			
-			<h:outputLabel value="Telefone" />
-			<h:inputText value="#{controller.employee.telephone}" />
-			
-			<h:outputLabel value="Celular" />
-			<h:inputText value="#{controller.employee.cellphone}" />
-			
-			<h:outputLabel value="Data de admissão" />
-			<h:inputText value="#{controller.employee.admission_date}" />
+			<b:inputText value="#{controller.employee.email}" label="E-mail" mask="email"/>
+
+			<b:inputText value="#{controller.employee.rg}" label="RG" mask="numeric" />
+
+			<b:inputText value="#{controller.employee.cpf}" label="CPF" mask="999.999.999-99"/>
+
+			<b:inputText value="#{controller.employee.date_of_birth}" label="Data de nascimento" mask="dd/mm/yyyy"/>
+
+			<b:inputText value="#{controller.employee.telephone}" label="Telefone" mask="(99)9999-9999" />
+
+			<b:inputText value="#{controller.employee.cellphone}" label="Celular" mask="(99)99999-9999"/>
+
+			<b:inputText value="#{controller.employee.admission_date}" label="Data de admissão" mask="dd/mm/yyyy"/>
 
 			<h:panelGroup style="display:block; text-align:center">
-				<h:commandButton id="submit" value="Cadastrar"
+				<b:commandButton id="submit" value="Cadastrar"
 					action="#{controller.cadEmployee()}" />
 			</h:panelGroup>
-		</h:panelGrid>
-	</h:form>
+		</b:panelGrid>
+	</b:form>
 </h:body>
 </html>
 
