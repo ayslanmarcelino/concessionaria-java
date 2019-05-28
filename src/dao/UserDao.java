@@ -19,7 +19,7 @@ public class UserDao {
     	try {       	 
         	con = connectionDb.getConnection();
 			
-			String sql = "SELECT * FROM users WHERE name = ? and password = ?";
+			String sql = "SELECT * FROM email WHERE email = ? and password = ?";
 			PreparedStatement ps = con.prepareStatement(sql); 
              ps.setString(1, userBean.getEmail());
              ps.setString(2, userBean.getPassword());
