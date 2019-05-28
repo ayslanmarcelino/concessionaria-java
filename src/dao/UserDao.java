@@ -13,20 +13,20 @@ public class UserDao {
 	private Connection con;
 	
 	public String authUser(UserBean userBean) {  
-    	System.out.println("Entrou LOGIN");
+
     	String redirect = null;
         
     	try {       	 
         	con = connectionDb.getConnection();
 			
-			String sql = "SELECT * FROM users WHERE name = ? and password = ?";
+			String sql = "SELECT * FROM email WHERE email = ? and password = ?";
 			PreparedStatement ps = con.prepareStatement(sql); 
              ps.setString(1, userBean.getEmail());
              ps.setString(2, userBean.getPassword());
              ResultSet rs = ps.executeQuery();
              
              if (rs.next()) {
-            	 redirect = "login_sucesso";	            	 
+            	 redirect = "home";	            	 
              }else {
             	 redirect = "login_falhou";
              }	             	             

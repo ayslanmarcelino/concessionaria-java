@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:b="http://bootsfaces.net/ui">
+
+<h:head></h:head>
+<h:body>
+	<b:form inline="true">
+		<b:panelGrid columns="1" style="display:block; text-align:center">
+			<f:facet name="header">
+				<h:outputText value="Cadastro de funcionários" />
+			</f:facet>
+
+			<b:inputText value="#{controller.employee.name}" label="Nome"
+				required="true" />
+
+			<b:inputText value="#{controller.employee.email}" label="E-mail"
+				mask="email" required="true" />
+
+			<b:inputText value="#{controller.employee.rg}" label="RG"
+				mask="numeric" required="true" />
+
+			<b:inputText value="#{controller.employee.cpf}" label="CPF"
+				mask="999.999.999-99" required="true" />
+
+			<b:inputText value="#{controller.employee.date_of_birth}"
+				label="Data de nascimento" mask="dd/mm/yyyy" required="true" />
+
+			<b:inputText value="#{controller.employee.telephone}"
+				label="Telefone" mask="(99)9999-9999" required="true" />
+
+			<b:inputText value="#{controller.employee.cellphone}" label="Celular"
+				mask="(99)99999-9999" required="true" />
+
+			<b:inputText value="#{controller.employee.admission_date}"
+				label="Data de admissão" mask="dd/mm/yyyy" required="true" />
+
+			<h:panelGroup style="display:block; text-align:center">
+				<b:commandButton id="submit" value="Cadastrar"
+					action="#{controller.cadEmployee()}" />
+			</h:panelGroup>
+		</b:panelGrid>
+	</b:form>
+</h:body>
+</html>
+
+
