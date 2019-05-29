@@ -2,29 +2,49 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:b="http://bootsfaces.net/ui">
 
-<h:head></h:head>
-<h:body>
-	<h:form>
-		<h:panelGrid columns="2" border="1" cellpadding="10" cellspacing="1">
+<h:head>
+<title>Cadastro de usuário - Concessionária</title>
+
+        <style type="text/css">
+            .form-signin {
+                margin: 0 auto;
+                max-width: 450px;
+                padding: 50px;
+            }
+        </style>
+</h:head>
+
+<h:body style="padding-top: 100px">
+
+	<b:navBar brand="Concessionária" brandHref="/home.xhtml" fluid="true" inverse="true" position="top" >
+		<b:navbarLinks>
+		<b:navLink value="Usuários" href="#" iconAwesome="users" active="true"></b:navLink>
+		<b:navLink value="Funcionários" href="#" iconAwesome="user"></b:navLink>
+		<b:navLink value="Veículos" href="#" iconAwesome="car"></b:navLink>
+		</b:navbarLinks>
+	</b:navBar>
+	
+	<b:form styleClass="form-signin">
+		<b:panelGrid columns="1">
 			<f:facet name="header">
 				<h:outputText value="Cadastro de usuários" />
 			</f:facet>
-			<h:outputLabel value="Nome" />
-			<h:inputText value="#{controller.user.name}" />
+			
+			<b:inputText value="#{controller.user.name}" label="Nome" required="true"/>
 
-			<h:outputLabel value="Email" />
-			<h:inputText value="#{controller.user.email}" />
+			<b:inputText value="#{controller.user.email}" label="E-mail" required="true"/>
 
-			<h:outputLabel value="Senha" />
-			<h:inputSecret value="#{controller.user.password}" />
+			<b:inputSecret value="#{controller.user.password}" label="Senha" required="true"/>
 
 			<h:panelGroup style="display:block; text-align:center">
-				<h:commandButton id="submit" value="Cadastrar"
+				<b:commandButton id="submit" value="Cadastrar"
 					action="#{controller.cadUser()}" />
 			</h:panelGroup>
-		</h:panelGrid>
-	</h:form>
+		</b:panelGrid>
+	</b:form>
+	
 </h:body>
 </html>
