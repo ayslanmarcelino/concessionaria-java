@@ -6,41 +6,55 @@
 	xmlns:b="http://bootsfaces.net/ui">
 
 <h:head>
-<title>Cadastro de usuário - Concessionária</title>
+	<title>Cadastro de usuário - Concessionária</title>
 
-        <style type="text/css">
-            .form-signin {
-                margin: 0 auto;
-                max-width: 450px;
-                padding: 50px;
-            }
-        </style>
+	<style type="text/css">
+.form-signin {
+	margin: 0 auto;
+	max-width: 450px;
+	padding: 50px;
+}
+</style>
 </h:head>
 
 <h:body style="padding-top: 10px">
 
-	<b:navBar brand="Concessionária" brandHref="faces/home.xhtml" fluid="true" inverse="true" position="top" >
+	<b:navBar brand="Concessionária" brandHref="faces/home.xhtml"
+		fluid="true" inverse="true" position="top">
 		<b:navbarLinks>
-		<b:navLink value="Usuários" href="faces/cadastrar_usuario.xhtml" iconAwesome="users" active="true"></b:navLink>
-		<b:navLink value="Funcionários" href="faces/cadastrar_funcionario.xhtml" iconAwesome="user"></b:navLink>
-		<b:navLink value="Marcas" href="faces/cadastrar_marca.xhtml" iconAwesome="copyright"></b:navLink>
-		<b:navLink value="Modelos" href="faces/cadastrar_modelo.xhtml" iconAwesome="tag"></b:navLink>
-		<b:navLink value="Veículos" href="faces/cadastrar_veiculo.xhtml" iconAwesome="car"></b:navLink>
-		<b:navLink value="Relatórios" href="" iconAwesome="clipboard"></b:navLink>
+			<b:navLink value="Usuários" href="faces/cadastrar_usuario.xhtml"
+				iconAwesome="users" active="true"></b:navLink>
+			<b:navLink value="Funcionários"
+				href="faces/cadastrar_funcionario.xhtml" iconAwesome="user"></b:navLink>
+			<b:navLink value="Marcas" href="faces/cadastrar_marca.xhtml"
+				iconAwesome="copyright"></b:navLink>
+			<b:navLink value="Modelos" href="faces/cadastrar_modelo.xhtml"
+				iconAwesome="tag"></b:navLink>
+			<b:navLink value="Veículos" href="faces/cadastrar_veiculo.xhtml"
+				iconAwesome="car"></b:navLink>
+			<b:navLink value="Relatórios" href="" iconAwesome="clipboard"></b:navLink>
+		</b:navbarLinks>
+		<b:navbarLinks pull="right">
+			<b:navLink value="Sair" href="faces/login.xhtml"
+				iconAwesome="sign-out"></b:navLink>
 		</b:navbarLinks>
 	</b:navBar>
-	
+
+
 	<b:form styleClass="form-signin">
 		<b:panelGrid columns="1">
 			<f:facet name="header">
 				<h:outputText value="Cadastro de usuários" />
 			</f:facet>
-			
-			<b:inputText value="#{controller.user.name}" label="Nome" required="true"/>
 
-			<b:inputText value="#{controller.user.email}" label="E-mail" mask="email" required="true"/>
+			<b:inputText value="#{controller.user.name}" label="Nome"
+				required="true" />
 
-			<b:inputSecret value="#{controller.user.password}" label="Senha" required="true"/>
+			<b:inputText value="#{controller.user.email}" label="E-mail"
+				mask="email" required="true" />
+
+			<b:inputSecret value="#{controller.user.password}" label="Senha"
+				required="true" />
 
 			<h:panelGroup style="display:block; text-align:center">
 				<b:commandButton id="submit" value="Cadastrar"
@@ -48,6 +62,6 @@
 			</h:panelGroup>
 		</b:panelGrid>
 	</b:form>
-	
+
 </h:body>
 </html>
