@@ -2,23 +2,42 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
 
 	
-	<h:head></h:head>
-<h:body>
-	<h:form>
-		<h:panelGrid columns="2" border="1" cellpadding="10" cellspacing="1">
+	<h:head>
+	<title>Cadastro de marca - Concessionária</title>
+
+        <style type="text/css">
+            .form-signin {
+                margin: 0 auto;
+                max-width: 450px;
+                padding: 50px;
+            }
+        </style>
+	</h:head>
+<h:body style="padding-top: 10px">
+
+	<b:navBar brand="Concessionária" brandHref="faces/home.xhtml" fluid="true" inverse="true" position="top" >
+		<b:navbarLinks>
+		<b:navLink value="Usuários" href="faces/cadastrar_usuario.xhtml" iconAwesome="users"></b:navLink>
+		<b:navLink value="Funcionários" href="faces/cadastrar_funcionario.xhtml" iconAwesome="user"></b:navLink>
+		<b:navLink value="Veículos" href="faces/cadastrar_veiculo.xhtml" iconAwesome="car"></b:navLink>
+		</b:navbarLinks>
+	</b:navBar>
+
+	<h:form styleClass="form-signin">
+		<b:panelGrid columns="1">
 			<f:facet name="header">
 				<h:outputText value="Cadastro de marca" />
 			</f:facet>
-			<h:outputLabel value="Nome" />
-			<h:inputText value="#{controller.carBrand.name}"/>
+			<b:inputText value="#{controller.carBrand.name}" label="Marca" required="true"/>
 
 			<h:panelGroup style="display:block; text-align:center">
- 				<h:commandButton value="Cadastrar" action="#{controller.createBrand()}" />
+ 				<b:commandButton value="Cadastrar" action="#{controller.createBrand()}" />
 			</h:panelGroup>
-		</h:panelGrid>
+		</b:panelGrid>
 	</h:form>
 </h:body>
 	
