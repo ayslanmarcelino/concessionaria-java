@@ -5,8 +5,19 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:b="http://bootsfaces.net/ui">
 
-<h:head></h:head>
-<h:body>
+<h:head>
+<title>Cadastro de funcionário - Concessionária</title>
+
+        <style type="text/css">
+            .form-signin {
+                margin: 0 auto;
+                max-width: 450px;
+                padding: 50px;
+            }
+        </style>
+</h:head>
+
+<h:body style="padding-top: 10px">
 
 	<b:navBar brand="Concessionária" brandHref="faces/home.xhtml" fluid="true" inverse="true" position="top" >
 		<b:navbarLinks>
@@ -16,27 +27,27 @@
 		</b:navbarLinks>
 	</b:navBar>
 	
-	<b:form inline="true">
+	<b:form styleClass="form-signin">
 		<b:panelGrid columns="1">
 			<f:facet name="header">
 				<h:outputText value="Cadastro de funcionários" />
 			</f:facet>
 
-			<b:inputText value="#{controller.employee.name}" label="Nome" />
+			<b:inputText value="#{controller.employee.name}" label="Nome" required="true"/>
 
-			<b:inputText value="#{controller.employee.email}" label="E-mail" mask="email"/>
+			<b:inputText value="#{controller.employee.email}" label="E-mail" mask="email" required="true"/>
 
-			<b:inputText value="#{controller.employee.rg}" label="RG" mask="numeric" />
+			<b:inputText value="#{controller.employee.rg}" label="RG" mask="numeric" required="true"/>
 
-			<b:inputText value="#{controller.employee.cpf}" label="CPF" mask="999.999.999-99"/>
+			<b:inputText value="#{controller.employee.cpf}" label="CPF" mask="999.999.999-99" required="true"/>
 
-			<b:inputText value="#{controller.employee.date_of_birth}" label="Data de nascimento" mask="dd/mm/yyyy"/>
+			<b:inputText value="#{controller.employee.date_of_birth}" label="Data de nascimento" mask="dd/mm/yyyy" required="true"/>
 
-			<b:inputText value="#{controller.employee.telephone}" label="Telefone" mask="(99)9999-9999" />
+			<b:inputText value="#{controller.employee.telephone}" label="Telefone" mask="(99)9999-9999" required="true"/>
 
-			<b:inputText value="#{controller.employee.cellphone}" label="Celular" mask="(99)99999-9999"/>
+			<b:inputText value="#{controller.employee.cellphone}" label="Celular" mask="(99)99999-9999" required="true"/>
 
-			<b:inputText value="#{controller.employee.admission_date}" label="Data de admissão" mask="dd/mm/yyyy"/>
+			<b:inputText value="#{controller.employee.admission_date}" label="Data de admissão" mask="dd/mm/yyyy" required="true"/>
 
 			<h:panelGroup style="display:block; text-align:center">
 				<b:commandButton id="submit" value="Cadastrar"
