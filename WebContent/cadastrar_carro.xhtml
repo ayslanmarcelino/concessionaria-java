@@ -53,9 +53,10 @@
 				<h:outputText value="Cadastro de veículos" />
 			</f:facet>
 				
-			<b:selectOneMenu value="#{carController.carBean.carModelBean.id}" required="true" label="Selecione o modelo:">
+			
+			<b:selectOneMenu value="#{carController.carBean.carBrandBean.id}" required="true" label="Selecione o modelo:">
 			    <f:selectItem itemLabel="Selecione" itemValue="" />
-       			<f:selectItems value="#{controllerCarModel.modelBeanList}" var="modelo" itemValue="#{modelo.id}" itemLabel="#{modelo.name}" />
+       			<f:selectItems value="#{controllerCarBrand.brandBeanList}" var="marca" itemValue="#{marca.id}" itemLabel="#{marca.name}" />
 			</b:selectOneMenu>
 			<b:inputText value="#{carController.carBean.manufacturing_year}" label="Ano do Modelo"
 				required="true" />
@@ -71,11 +72,12 @@
 				required="true" />
 			<b:inputText value="#{carController.carBean.status}" label="Status"
 				required="true" />
-
-			<b:selectOneMenu value="#{carController.carBean.carBrandBean.id}" required="true" label="Selecione o modelo:">
+				
+			<b:selectOneMenu value="#{carController.carBean.carModelBean.id}" required="true" label="Selecione o modelo:">
 			    <f:selectItem itemLabel="Selecione" itemValue="" />
-       			<f:selectItems value="#{controllerCarBrand.brandBeanList}" var="marca" itemValue="#{marca.id}" itemLabel="#{marca.name}" />
+       			<f:selectItems value="#{controllerCarModel.modelBeanList}" var="modelo" itemValue="#{modelo.id}" itemLabel="#{modelo.name}" />
 			</b:selectOneMenu>
+
 		
 		
 
