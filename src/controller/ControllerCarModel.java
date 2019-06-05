@@ -60,6 +60,8 @@ public class ControllerCarModel {
 		this.carbrandBean = carbrandBean;
 	}
 
+	// METHODS
+	
 	public void createBrand() {
 		carModelDao.createCarModel(carModel);
 	}

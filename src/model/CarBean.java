@@ -8,6 +8,8 @@ public class CarBean {
 	private String description;
 	private String fuel;
 	private Double price;
+	private int quantity;
+	private String status;	
 	private CarBrandBean carBrandBean = new CarBrandBean();
 	private CarModelBean carModelBean = new CarModelBean();
 	
@@ -47,6 +49,20 @@ public class CarBean {
 	}
 	public void setPrice(Double price) {
 		this.price = price;
+	}
+	
+	
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	public CarBrandBean getCarBrandBean() {
 		return carBrandBean;

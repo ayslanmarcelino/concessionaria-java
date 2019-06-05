@@ -50,37 +50,37 @@
 	<b:form styleClass="form-signin">
 		<b:panelGrid columns="1">
 			<f:facet name="header">
-				<h:outputText value="Cadastro de funcionários" />
+				<h:outputText value="Cadastro de veículos" />
 			</f:facet>
-
-			<b:inputText value="#{controller.employee.name}" label="Nome"
+				
+			<b:selectOneMenu value="#{carController.carBean.carModelBean.id}" required="true" label="Selecione o modelo:">
+			    <f:selectItem itemLabel="Selecione" itemValue="" />
+       			<f:selectItems value="#{controllerCarModel.modelBeanList}" var="modelo" itemValue="#{modelo.id}" itemLabel="#{modelo.name}" />
+			</b:selectOneMenu>
+			<b:inputText value="#{carController.carBean.manufacturing_year}" label="Ano do Modelo"
+				required="true" />
+			<b:inputText value="#{carController.carBean.chassi}" label=" Chassi"
+				required="true" />
+			<b:inputText value="#{carController.carBean.description}" label="Descrição"
+				required="true" />
+			<b:inputText value="#{carController.carBean.fuel}" label="Combustivel"
+				required="true" />
+			<b:inputText value="#{carController.carBean.price}" label="Preço"
+				required="true" />
+			<b:inputText value="#{carController.carBean.quantity}" label="Quantidade"
+				required="true" />
+			<b:inputText value="#{carController.carBean.status}" label="Status"
 				required="true" />
 
-			<b:inputText value="#{controller.employee.email}" label="E-mail"
-				mask="email" required="true" />
-
-			<b:inputText value="#{controller.employee.rg}" label="RG"
-				mask="numeric" required="true" />
-
-			<b:inputText value="#{controller.employee.cpf}" label="CPF"
-				mask="999.999.999-99" required="true" />
-
-			<b:inputText value="#{controller.employee.date_of_birth}"
-				label="Data de nascimento" mask="dd/mm/yyyy" required="true" />
-
-			<b:inputText value="#{controller.employee.telephone}"
-				label="Telefone" mask="(99)9999-9999" required="true" />
-
-			<b:inputText value="#{controller.employee.cellphone}" label="Celular"
-				mask="(99)99999-9999" required="true" />
-
-			<b:inputText value="#{controller.employee.admission_date}"
-				label="Data de admissão" mask="dd/mm/yyyy" required="true" />
-				
+			<b:selectOneMenu value="#{carController.carBean.carBrandBean.id}" required="true" label="Selecione o modelo:">
+			    <f:selectItem itemLabel="Selecione" itemValue="" />
+       			<f:selectItems value="#{controllerCarBrand.brandBeanList}" var="marca" itemValue="#{marca.id}" itemLabel="#{marca.name}" />
+			</b:selectOneMenu>
+		
+		
 
 			<h:panelGroup style="display:block; text-align:center">
-				<b:commandButton id="submit" value="Cadastrar"
-					action="#{controller.cadEmployee()}" />
+				<b:commandButton id="submit" value="Cadastrar"	action="#{carController.createCar()}" />
 			</h:panelGroup>
 		</b:panelGrid>
 	</b:form>
