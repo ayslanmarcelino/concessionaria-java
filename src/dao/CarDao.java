@@ -107,7 +107,7 @@ public class CarDao {
 			
 			while (result.next()) {
 				CarBean carBean = new CarBean();
-				carBean.setId(result.getInt(""));
+				carBean.setId(result.getInt("id_cars"));
 				carBean.setChassi(result.getString("chassi"));
 				carBean.setDescription(result.getString("description"));
 				carBean.setFuel(result.getString("fuel_type"));
@@ -136,10 +136,12 @@ public class CarDao {
 
 		try {
 				con = connectionDb.getConnection();
-				String sql = "UPDATE cars SET manufacturing_year=?, chassi=?, fuel_type=?, description=?, price=?, quantity=?, status=?, id_car_brands_fk=?, id_car_models_fk=? WHERE id_cars=?";
+				String sql = "UPDATE cars SET manufacturing_year=?, id_car_brands_fk=?, id_car_models_fk=? WHERE id_cars=?";
+				//String sql = "UPDATE cars SET manufacturing_year=?, chassi=?, fuel_type=?, description=?, price=?, quantity=?, status=?, id_car_brands_fk=?, id_car_models_fk=? WHERE id_cars=?";
 				System.out.println(sql);
 				PreparedStatement ps = con.prepareStatement(sql);
 
+				/*
 				ps.setInt(1, carBean.getManufacturing_year());
 				ps.setString(2, carBean.getChassi());
 				ps.setString(3, carBean.getFuel());
@@ -149,6 +151,13 @@ public class CarDao {
 				ps.setString(7, carBean.getStatus());
 				ps.setInt(8, carBean.getCarBrandBean().getId());
 				ps.setInt(9, carBean.getCarModelBean().getId());;
+				ps.executeUpdate();
+				 */
+				
+				ps.setInt(1, carBean.getManufacturing_year());
+				ps.setInt(2, carBean.getCarBrandBean().getId());
+				ps.setInt(3, carBean.getCarModelBean().getId());
+				ps.setInt(4, carBean.getId());
 				ps.executeUpdate();
 
 

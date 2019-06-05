@@ -71,10 +71,12 @@ public class CarController {
 		this.carBeanList = carDao.searchForCarDescription(searchField);
 
 	}
-
-	public void editCarBrand() {
+	
+	public void editCar() {
 		carDao.EditCar(carBean);
 	}
+
+
 
 
 }
