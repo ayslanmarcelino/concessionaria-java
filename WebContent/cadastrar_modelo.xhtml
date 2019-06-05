@@ -3,11 +3,12 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:b="http://bootsfaces.net/ui">
+	xmlns:b="http://bootsfaces.net/ui"
+      xmlns:p="http://primefaces.org/ui">
 
 
 <h:head>
-	<title>Cadastro de marca - Concessionária</title>
+	<title>Cadastro Modelo - Concessionária</title>
 
 	<style type="text/css">
 .form-signin {
@@ -52,12 +53,17 @@
 			<f:facet name="header">
 				<h:outputText value="Cadastro de marca" />
 			</f:facet>
-			<b:inputText value="#{controllerCarBrand.carBrand.name}" label="Marca"
+			<b:inputText value="#{controllerCarModel.carModel.name}" label="Modelo"
 				required="true" />
-
+			
+			<p:outputLabel value="Selecione a marca: " />
+			<p:selectOneMenu value="#{controllerCarModel.carModel.brandBean.id}">
+				<f:selectItem itemLabel="Selecionar Marca" itemValue="" />
+				<f:selectItems value="#{controllerCarBrand.brandBeanList}" var="marca" itemLabel="#{marca.name}" itemValue="#{marca.id}"/>
+			</p:selectOneMenu>
+			<p></p>
 			<h:panelGroup style="display:block; text-align:center">
-				<b:commandButton value="Cadastrar"
-					action="#{controllerCarBrand.createBrand()}" />
+				<b:commandButton value="Cadastrar" action="#{controllerCarModel.createBrand()}" />
 			</h:panelGroup>
 		</b:panelGrid>
 	</h:form>

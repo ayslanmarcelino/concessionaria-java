@@ -19,24 +19,31 @@
 
 <h:body style="padding-top: 10px">
 
-	<b:navBar brand="Concessionária" brandHref="faces/home.xhtml"
-		fluid="true" inverse="true" position="top">
+	<b:navBar brand="Concessionária" brandHref="home.xhtml" fluid="true"
+		inverse="true" position="top">
 		<b:navbarLinks>
-			<b:navLink value="Usuários" href="faces/cadastrar_usuario.xhtml"
-				iconAwesome="users" active="true"></b:navLink>
-			<b:navLink value="Funcionários"
-				href="faces/cadastrar_funcionario.xhtml" iconAwesome="user"></b:navLink>
-			<b:navLink value="Marcas" href="faces/cadastrar_marca.xhtml"
-				iconAwesome="copyright"></b:navLink>
-			<b:navLink value="Modelos" href="faces/cadastrar_modelo.xhtml"
-				iconAwesome="tag"></b:navLink>
-			<b:navLink value="Veículos" href="faces/cadastrar_veiculo.xhtml"
+			<b:navLink value="Usuários" href="cadastrar_usuario.xhtml"
+				iconAwesome="users"></b:navLink>
+			<b:navLink value="Funcionários" href="cadastrar_funcionario.xhtml"
+				iconAwesome="user"></b:navLink>
+			<b:dropMenu value="Marcas" iconAwesome="copyright">
+      		<b:navLink value="Cadastrar" href="cadastrar_marca.xhtml"
+				iconAwesome="copyright" active="true"></b:navLink>
+			<b:navLink value="Opções" href="buscar_marca.xhtml"
+				iconAwesome="cog" active="true"></b:navLink>
+			</b:dropMenu>
+			<b:dropMenu value="Modelos" iconAwesome="tag">
+      		<b:navLink value="Cadastrar" href="cadastrar_modelo.xhtml"
+				iconAwesome="tag" active="true"></b:navLink>
+			<b:navLink value="Opções" href="buscar_modelo.xhtml"
+				iconAwesome="cog" active="true"></b:navLink>
+			</b:dropMenu>
+			<b:navLink value="Veículos" href="cadastrar_veiculo.xhtml"
 				iconAwesome="car"></b:navLink>
 			<b:navLink value="Relatórios" href="" iconAwesome="clipboard"></b:navLink>
 		</b:navbarLinks>
 		<b:navbarLinks pull="right">
-			<b:navLink value="Sair" href="faces/login.xhtml"
-				iconAwesome="sign-out"></b:navLink>
+			<b:navLink value="Sair" href="login.xhtml" iconAwesome="sign-out"></b:navLink>
 		</b:navbarLinks>
 	</b:navBar>
 
