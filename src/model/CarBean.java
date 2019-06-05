@@ -6,9 +6,11 @@ public class CarBean {
 	private int manufacturing_year;
 	private String chassi;
 	private String description;
+	private String fuel;
 	private Double price;
 	private CarBrandBean carBrandBean = new CarBrandBean();
 	private CarModelBean carModelBean = new CarModelBean();
+	
 	public int getId() {
 		return id;
 	}
@@ -32,6 +34,13 @@ public class CarBean {
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	
+	public String getFuel() {
+		return fuel;
+	}
+	public void setFuel(String fuel) {
+		this.fuel = fuel;
 	}
 	public Double getPrice() {
 		return price;

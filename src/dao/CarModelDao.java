@@ -6,10 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import connectiondb.connectionDb;
 import model.CarModelBean;
-import sun.security.action.GetIntegerAction;
+
 
 public class CarModelDao {
 
