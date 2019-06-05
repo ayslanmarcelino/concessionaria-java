@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:b="http://bootsfaces.net/ui"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Cadastro de Veículos - Concessionária</title>
+
+	<style type="text/css">
+.form-signin {
+	margin: 0 auto;
+	max-width: 450px;
+	padding: 50px;
+}
+</style>
+</h:head>
+
+<h:body style="padding-top: 10px">
+
+	<b:navBar brand="Concessionária" brandHref="home.xhtml" fluid="true"
+		inverse="true" position="top">
+		<b:navbarLinks>
+			<b:navLink value="Usuários" href="cadastrar_usuario.xhtml"
+				iconAwesome="users"></b:navLink>
+			<b:navLink value="Funcionários" href="cadastrar_funcionario.xhtml"
+				iconAwesome="user"></b:navLink>
+			<b:dropMenu value="Marcas" iconAwesome="copyright">
+      		<b:navLink value="Cadastrar" href="cadastrar_marca.xhtml"
+				iconAwesome="copyright" active="true"></b:navLink>
+			<b:navLink value="Opções" href="buscar_marca.xhtml"
+				iconAwesome="cog" active="true"></b:navLink>
+			</b:dropMenu>
+			<b:dropMenu value="Modelos" iconAwesome="tag">
+      		<b:navLink value="Cadastrar" href="cadastrar_modelo.xhtml"
+				iconAwesome="tag" active="true"></b:navLink>
+			<b:navLink value="Opções" href="buscar_modelo.xhtml"
+				iconAwesome="cog" active="true"></b:navLink>
+			</b:dropMenu>
+			<b:navLink value="Veículos" href="cadastrar_veiculo.xhtml"
+				iconAwesome="car"></b:navLink>
+			<b:navLink value="Relatórios" href="" iconAwesome="clipboard"></b:navLink>
+		</b:navbarLinks>
+		<b:navbarLinks pull="right">
+			<b:navLink value="Sair" href="login.xhtml" iconAwesome="sign-out"></b:navLink>
+		</b:navbarLinks>
+	</b:navBar>
+
+	<p:dialog widgetVar="EditarVeiculo" header="Editar Veiculo" height="auto" width="auto" draggable="true" resizable="false" modal="true">
+		<h:form id="formEdit">
+<!-- marca, modelo, ano de modelo, estado do veículo????? -->
+			<p:panelGrid columns="2">
+
+				<p:outputLabel value="ID" />
+				<p:inputText value="#{carController.carBean.id}" maxlength="3"
+					size="0" required="true" />
+
+				<p:outputLabel value="Ano do Modelo " />
+				<p:inputText value="#{carController.carBean.manufacturing_year}"
+					maxlength="30" size="25" required="true"
+					requiredMessage="insira o ano" />
+				
+				<p:outputLabel value="Marca " />
+				<p:selectOneMenu value="#{carController.carBean.carBrandBean.id}">
+				    <f:selectItem itemLabel="Selecione" itemValue="" />
+	       			<f:selectItems value="#{controllerCarBrand.brandBeanList}" var="modelo" itemValue="#{modelo.id}" itemLabel="#{modelo.name}" />
+				</p:selectOneMenu>
+
+				<p:outputLabel value="Modelo " />
+				<p:selectOneMenu value="#{carController.carBean.carModelBean.id}">
+				    <f:selectItem itemLabel="Selecione" itemValue="" />
+	       			<f:selectItems value="#{controllerCarModel.modelBeanList}" var="modelo" itemValue="#{modelo.id}" itemLabel="#{modelo.name}" />
+				</p:selectOneMenu>
+
+
+			</p:panelGrid>
+
+			<p:separator />
+			<center>
+				<p:panelGrid columns="2">
+					<p:commandButton value="Alterar" action="#{carController.editCar()}" update=":formEdit :formTab" icon="ui-icon-pencil" />
+					<p:commandButton value="Fechar"	onclick="PF('EditarModelo').hide();" />
+				</p:panelGrid>
+			</center>
+		</h:form>
+	</p:dialog>
+
+
+	<h:form id="formTab">
+		<p:separator />
+		<p:separator />
+		<h1>Procurar Veiculos</h1>
+		<p:separator />
+		<br />
+		<p:panelGrid columns="3" styleClass="semBorda">
+			<p:outputLabel value="Buscar por: " />
+			<p:inputText value="#{controllerCarModel.searchField}" maxlength="30"
+				size="25" />
+			<p:commandButton value="Buscar"
+				action="#{controllerCarModel.searchByBrandName()}" update=":formTab" />
+
+		</p:panelGrid>
+
+		<br />
+		<p:dataTable id="tab" value="#{carController.carBeanList}" var="tabela" emptyMessage="nenhuma modelo cadastrado" rows="5" paginator="true" paginatorPosition="bottom">
+			<p:column headerText="Id">
+				<p:outputLabel value="#{tabela.id}" />
+			</p:column>
+			
+			<p:column headerText="Ano do Modelo">
+				<p:outputLabel value="#{tabela.manufacturing_year}" />
+			</p:column>
+
+			<p:column headerText="Marca">
+				<p:outputLabel value="#{tabela.carBrandBean.name}" />
+			</p:column>
+
+			<p:column headerText="Modelo">
+				<p:outputLabel value="#{tabela.carModelBean.name}" />
+			</p:column>
+
+			<p:column headerText="Ações">
+				<center>
+
+					<p:commandButton onclick="PF('EditarVeiculo').show();" update=":formEdit :formTab" icon="ui-icon-pencil">
+						<f:setPropertyActionListener value="#{tabela}" target="#{carController.carBean}" />
+					</p:commandButton>
+
+
+
+				</center>
+			</p:column>
+		</p:dataTable>
+
+		<br />
+
+	</h:form>
+</h:body>
+</html>
+
+
